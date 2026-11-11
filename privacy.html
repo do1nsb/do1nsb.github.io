@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Datenschutzerklärung VadoMap</h1>
-<p>Stand: 8. November 2026</p>
+<p>Stand: 11. November 2026</p>
 
 <h2>Verantwortlich</h2>
 <p>Stefan Becker, <a href="mailto:do1nsb@icloud.com">do1nsb@icloud.com</a></p>
@@ -19,8 +19,19 @@
 <h2>Standort</h2>
 <p>VadoMap verwendet den Standort des Fahrzeugs, um die Karte zu zentrieren, auf Wunsch eine
 Strecke aufzuzeichnen und die Entfernung zu einem gespeicherten Ort zu zeigen. Der Standort
-wird nur im Fahrzeug verarbeitet und gespeichert. Er wird nicht an den Entwickler oder an
-Dritte übermittelt.</p>
+wird nur im Fahrzeug verarbeitet und gespeichert. Er wird nicht an den Entwickler übermittelt.</p>
+<p>Ausnahme Straßen- und Ortsname: Ist „Standort in der Infobox anzeigen“ eingeschaltet und die
+Straßenkarte aktiv, fragt VadoMap den Namen der aktuellen Straße über den Geocoder-Dienst des
+Android-Systems ab (in der Regel von Google betrieben). Dabei werden etwa alle 40 Meter die
+Koordinaten des Fahrzeugs an diesen Dienst gesendet. VadoMap speichert sie dort nicht und hat
+keinen Einfluss auf die Verarbeitung. Du kannst das in VadoMap im Menü „Karten“ ausschalten;
+dann werden stattdessen nur Koordinaten angezeigt.</p>
+<p>Ausnahme Wetter: Ist die Atlas-Karte aktiv, zeigt VadoMap Wettersymbol, Windrichtung,
+Windgeschwindigkeit und Luftdruck am Fahrzeugstandort. Dafür ruft VadoMap die aktuellen Wetterdaten
+bei Open-Meteo (open-meteo.com) ab, etwa alle 15 Minuten oder nach 5 Kilometern Fahrt. Gesendet
+werden auf zwei Nachkommastellen gerundete Koordinaten (etwa 1 Kilometer genau); Open-Meteo erhält
+technisch bedingt außerdem die IP-Adresse des Fahrzeugs. Es wird kein Schlüssel und kein Konto
+verwendet; VadoMap speichert die Daten nicht. Die Wetterdaten stehen unter der Lizenz CC BY 4.0.</p>
 
 <h2>Strecken und Orte</h2>
 <p>Aufgezeichnete Strecken, gespeicherte Orte und gespeicherte Karten bleiben im Fahrzeug.
@@ -40,13 +51,13 @@ angezeigten Kartenausschnitt.</p>
 <h2>Google Drive</h2>
 <p>Nur wenn du Google Drive in VadoMap verbindest:</p>
 <ul>
+  <li>VadoMap nutzt ausschließlich die nicht-sensible Berechtigung (Scope) <code>https://www.googleapis.com/auth/drive.file</code>.
+      Die App hat keinen Zugriff auf deine restlichen Dateien in Google Drive.</li>
   <li>VadoMap lädt Strecken und Orte, die du ausdrücklich zum Sichern auswählst, als
-      GPX-Dateien in den Ordner „MapLy“ deines Google Drive hoch und kann sie dort auf deinen
-      Wunsch wieder löschen.</li>
-  <li>VadoMap liest die Liste der GPX-Dateien im Ordner „MapLy“ und lädt die Datei herunter,
-      die du antippst. Andere Dateien werden nicht geöffnet, gelesen oder verändert.</li>
+      GPX-Dateien in den Ordner „VadoMap“ deines Google Drive hoch. Eine hochgeladene Datei wird
+      beim erneuten Hochladen unter gleichem Namen ersetzt.</li>
   <li>VadoMap fragt die E-Mail-Adresse des verbundenen Google-Kontos ab, nur um sie dir
-      anzuzeigen.</li>
+      im Fahrzeug anzuzeigen.</li>
   <li>Die Zugangsdaten (Tokens) werden nur im Fahrzeug gespeichert und nicht in
       Android-Sicherungen übertragen.</li>
   <li>Daten aus Google Drive werden nicht an den Entwickler oder an Dritte weitergegeben,
@@ -66,7 +77,18 @@ einschließlich der Anforderungen zur eingeschränkten Nutzung (Limited Use).</p
 <h1>Privacy policy (English)</h1>
 <p><strong>Location</strong> is used only inside the vehicle to center the map and, if you
 choose, to record a route and show the distance to a saved place. It is never sent to the
-developer or third parties.</p>
+developer.</p>
+<p><strong>Exception, street and place name:</strong> if "Show location in info box" is on and
+the road map is active, VadoMap asks the Android system geocoder service (usually operated by
+Google) for the name of the current street. About every 40 meters the vehicle's coordinates are
+sent to that service. VadoMap does not store them there and has no influence on how they are
+processed. You can turn this off in VadoMap under "Maps"; only coordinates are shown then.</p>
+<p><strong>Exception, weather:</strong> if the atlas map is active, VadoMap shows a weather symbol,
+wind direction, wind speed and air pressure for the vehicle's position. For this it fetches the
+current weather from Open-Meteo (open-meteo.com), about every 15 minutes or after 5 kilometers of
+driving. Coordinates rounded to two decimal places (about 1 kilometer accuracy) are sent; Open-Meteo
+also receives the vehicle's IP address. No key and no account is used; VadoMap does not store the
+data. The weather data is licensed under CC BY 4.0.</p>
 <p><strong>Routes and places</strong>, as well as saved maps, stay in the vehicle and are not
 included in Android cloud backups. Single routes or places are copied to your Google Drive only
 when you choose to back them up.</p>
@@ -74,13 +96,14 @@ when you choose to back them up.</p>
 (road map), OpenTopoMap (topographic map) or the German Federal Agency for Cartography and
 Geodesy, TopPlusOpen (atlas map). The service receives the vehicle's IP address and the
 requested map area.</p>
-<p><strong>Google Drive</strong> (only if you connect it): VadoMap uploads the routes and places
-you choose as GPX files to the folder "MapLy" and can delete them there on your request. It
-lists the GPX files in that folder and downloads the one you select, and reads the e-mail address
-of the connected account only to show it to you. Tokens are stored only in the vehicle and are
-not included in Android backups. Data from Google Drive is not shared with the developer or third
-parties, not used for advertising and not used to train AI models. Use of data from Google APIs
-adheres to the
+<p><strong>Google Drive</strong> (only if you connect it): VadoMap uses exclusively the
+non-sensitive scope <code>https://www.googleapis.com/auth/drive.file</code> and has no access
+to your other files in Google Drive. It uploads the routes and places you choose as GPX files
+to the folder "VadoMap"; uploading again under the same name replaces the earlier copy.
+It reads the e-mail address of the connected account only to show it to you. Tokens are stored
+only in the vehicle and are not included in Android backups. Data from Google Drive is not
+shared with the developer or third parties, not used for advertising and not used to train AI
+models. Use of data from Google APIs adheres to the
 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>,
 including the Limited Use requirements. You can revoke access at
 <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
