@@ -20,18 +20,19 @@
 <p>VadoMap verwendet den Standort des Fahrzeugs, um die Karte zu zentrieren, auf Wunsch eine
 Strecke aufzuzeichnen und die Entfernung zu einem gespeicherten Ort zu zeigen. Der Standort
 wird nur im Fahrzeug verarbeitet und gespeichert. Er wird nicht an den Entwickler übermittelt.</p>
-<p>Ausnahme Straßen- und Ortsname: Ist „Standort in der Infobox anzeigen“ eingeschaltet und die
+<p>Ausnahme Straßen- und Ortsname: Ist die
 Straßenkarte aktiv, fragt VadoMap den Namen der aktuellen Straße über den Geocoder-Dienst des
 Android-Systems ab (in der Regel von Google betrieben). Dabei werden etwa alle 40 Meter die
 Koordinaten des Fahrzeugs an diesen Dienst gesendet. VadoMap speichert sie dort nicht und hat
-keinen Einfluss auf die Verarbeitung. Du kannst das in VadoMap im Menü „Karten“ ausschalten;
-dann werden stattdessen nur Koordinaten angezeigt.</p>
+keinen Einfluss auf die Verarbeitung. Auf der Topo- und der Atlas-Karte findet diese Abfrage nicht
+statt; dort werden nur Koordinaten angezeigt bzw. das Wetter.</p>
 <p>Ausnahme Wetter: Ist die Atlas-Karte aktiv, zeigt VadoMap Wettersymbol, Windrichtung,
 Windgeschwindigkeit, Temperatur, Niederschlag und Luftdruck am Fahrzeugstandort. Dafür ruft VadoMap die aktuellen Wetterdaten
-bei Open-Meteo (open-meteo.com) ab, etwa alle 15 Minuten oder nach 5 Kilometern Fahrt. Gesendet
-werden auf zwei Nachkommastellen gerundete Koordinaten (etwa 1 Kilometer genau); Open-Meteo erhält
-technisch bedingt außerdem die IP-Adresse des Fahrzeugs. Es wird kein Schlüssel und kein Konto
-verwendet; VadoMap speichert die Daten nicht. Die Wetterdaten stehen unter der Lizenz CC BY 4.0.</p>
+bei WeatherAPI.com (weatherapi.com) ab, etwa alle 30 Minuten. Gesendet werden auf zwei
+Nachkommastellen gerundete Koordinaten (etwa 1 Kilometer genau) und ein Programmschlüssel der App,
+der für alle Nutzer gleich ist; WeatherAPI.com erhält technisch bedingt außerdem die IP-Adresse des
+Fahrzeugs. Es wird kein Konto des Nutzers verwendet; VadoMap speichert die Daten nicht.
+Auf der Straßen- und der Topo-Karte wird nichts an WeatherAPI.com gesendet.</p>
 
 <h2>Strecken und Orte</h2>
 <p>Aufgezeichnete Strecken, gespeicherte Orte und gespeicherte Karten bleiben im Fahrzeug.
@@ -78,17 +79,18 @@ einschließlich der Anforderungen zur eingeschränkten Nutzung (Limited Use).</p
 <p><strong>Location</strong> is used only inside the vehicle to center the map and, if you
 choose, to record a route and show the distance to a saved place. It is never sent to the
 developer.</p>
-<p><strong>Exception, street and place name:</strong> if "Show location in info box" is on and
-the road map is active, VadoMap asks the Android system geocoder service (usually operated by
+<p><strong>Exception, street and place name:</strong> if the road map is active, VadoMap asks the Android system geocoder service (usually operated by
 Google) for the name of the current street. About every 40 meters the vehicle's coordinates are
 sent to that service. VadoMap does not store them there and has no influence on how they are
-processed. You can turn this off in VadoMap under "Maps"; only coordinates are shown then.</p>
+processed. On the topo and the atlas map this request does not take place; only coordinates or
+the weather are shown there.</p>
 <p><strong>Exception, weather:</strong> if the atlas map is active, VadoMap shows a weather symbol,
 wind direction, wind speed, temperature, precipitation and air pressure for the vehicle's position. For this it fetches the
-current weather from Open-Meteo (open-meteo.com), about every 15 minutes or after 5 kilometers of
-driving. Coordinates rounded to two decimal places (about 1 kilometer accuracy) are sent; Open-Meteo
-also receives the vehicle's IP address. No key and no account is used; VadoMap does not store the
-data. The weather data is licensed under CC BY 4.0.</p>
+current weather from WeatherAPI.com (weatherapi.com), about every 30 minutes. Coordinates rounded
+to two decimal places (about 1 kilometer accuracy) and an app key that is the same for all users are
+sent; WeatherAPI.com also receives the vehicle's IP address. No user account is used; VadoMap does
+not store the data.
+On the road and the topo map nothing is sent to WeatherAPI.com.</p>
 <p><strong>Routes and places</strong>, as well as saved maps, stay in the vehicle and are not
 included in Android cloud backups. Single routes or places are copied to your Google Drive only
 when you choose to back them up.</p>
